@@ -6,7 +6,6 @@ interface FeaturedProductsProps {
 }
 
 export default function AllCategorys({ products }: FeaturedProductsProps) { 
-	window.location.pathname
 	return (
 		<section className="py-12">
 			<h2 className="text-3xl font-bold text-center mb-8" >Productos Destacados</h2>
@@ -22,3 +21,6 @@ export default function AllCategorys({ products }: FeaturedProductsProps) {
 		</section>
 	)
 }
+
+
+
