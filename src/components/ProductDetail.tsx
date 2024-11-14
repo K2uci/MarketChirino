@@ -7,7 +7,30 @@ export default function ProductDetail() {
   const [selectedSize, setSelectedSize] = useState('');
   const location = useLocation();
   const { product } = location.state as { product: Product } || {};
-
+  const handleShare = async () => {
+    const url = window.location.href; // Obtiene la URL actual
+    if (navigator.share) {
+      try {
+        await navigator.share({
+            title: 'Me gusta este!',
+            text: 'Este sin duda es el articulo que prefiero!!!',
+            url: url,
+        });
+        console.log('Compartido con éxito');
+      } catch (error) {
+        console.error('Error al compartir:', error);
+      }
+    } else {
+      // Si navigator.share no está disponible, copia la URL al portapapeles
+      navigator.clipboard.writeText(url)
+        .then(() => {
+            alert('URL copiada al portapapeles: ' + url);
+        })
+        .catch(err => {
+            console.error('Error al copiar la URL:', err);
+        });
+    }
+  };
   return (
     <div className="min-h-screen bg-white pt-20">
       <div className="max-w-7xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -76,7 +99,7 @@ export default function ProductDetail() {
           </div>
 
           <div className="flex space-x-4 pt-6">
-            <button className="flex-1 bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-700 transition flex items-center justify-center space-x-2">
+            <button onClick={handleShare} className="flex-1 bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-700 transition flex items-center justify-center space-x-2">
               <ShoppingBag className="w-5 h-5" />
               <span>Compartir</span>
             </button>

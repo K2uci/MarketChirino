@@ -9,6 +9,8 @@ export type Product = {
   gender: 'men' | 'women';
   image: string;
   description: string;
+  created_at?: string;
+  updated_at?: Date;
 };
 
 export type FilterOptions = {

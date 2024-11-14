@@ -11,6 +11,30 @@ export default function ProductCard({ product }: ProductCardProps) {
   const handleClick = () => {
     navigate(`/product/${product.id}`, { state: { product } });
   };
+  const handleShare = async () => {
+    const url = window.location.href; // Obtiene la URL actual
+    if (navigator.share) {
+      try {
+        await navigator.share({
+            title: 'Me gusta este!',
+            text: 'Este sin duda es el articulo que prefiero!!!',
+            url: url,
+        });
+        console.log('Compartido con éxito');
+      } catch (error) {
+        console.error('Error al compartir:', error);
+      }
+    } else {
+      // Si navigator.share no está disponible, copia la URL al portapapeles
+      navigator.clipboard.writeText(url)
+        .then(() => {
+            alert('URL copiada al portapapeles: ' + url);
+        })
+        .catch(err => {
+            console.error('Error al copiar la URL:', err);
+        });
+    }
+  };
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
       <img
@@ -37,7 +61,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <span className="text-xl font-bold text-green-600">
             ${product.price}
           </span>
-          <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-green-600 transition">
+          <button onClick={handleShare} className="bg-black text-white px-4 py-2 rounded-full hover:bg-green-600 transition">
             Compartir
           </button>
         </div>

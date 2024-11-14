@@ -38,13 +38,13 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         >
           Novedades
         </a>
-        <a 
+        {/* <a 
           href="/sale" 
           className="text-2xl text-gray-300 hover:text-green-500 transition-colors"
           onClick={onClose}
         >
           Ofertas
-        </a>
+        </a> */}
       </nav>
     </div>
   );

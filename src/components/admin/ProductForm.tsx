@@ -13,8 +13,8 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
     name: '',
     price: '',
     description: '',
-    category: 'upper',
-    gender: 'men',
+    category: '',
+    gender: '',
     size: [] as string[],
     color: [] as string[],
     image: '',
@@ -39,8 +39,8 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
     e.preventDefault();
     
     const url = product
-      ? `http://localhost:3000/api/products/${product.id}`
-      : 'http://localhost:3000/api/products';
+      ? `http://localhost:3001/generic//editOne/${product.id}`
+      : 'http://localhost:3001/generic/createOne';
     
     const method = product ? 'PUT' : 'POST';
 
@@ -110,6 +110,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <div>
               <label className="block text-sm font-medium text-gray-700">Categoría</label>
               <select
+                defaultValue="upper"
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as any })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
@@ -124,6 +125,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <div>
               <label className="block text-sm font-medium text-gray-700">Género</label>
               <select
+                defaultValue="men"
                 value={formData.gender}
                 onChange={(e) => setFormData({ ...formData, gender: e.target.value as any })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"

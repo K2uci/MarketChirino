@@ -14,8 +14,12 @@ router.use(express.json());
 // Utils para cargar fotos
 const loadAll = require('@utils/generic/loadAllGeneric');
 const deleteOne = require('@utils/generic/deleteAllGeneric');
+const createOne = require('@utils/generic/createAllGeneric');
+const editOne = require('@utils/generic/editAllGeneric');
 
 router.get('/loadAll', (req,res) => loadAll(req, res));
-router.delete('/deleteOne', (req,res) => deleteOne(req, res));
+router.delete('/deleteOne/:id', (req,res) => deleteOne(req, res));
+router.post('/createOne', (req,res) => createOne(req, res));
+router.put('/editOne/:id', (req,res) => editOne(req, res));
 
 module.exports = router;

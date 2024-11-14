@@ -27,9 +27,9 @@ export default function AdminPanel() {
       try {
         await fetch(`http://localhost:3001/generic/deleteOne/${id}`, {
           method: 'DELETE',
-          headers: {
-            'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-          }
+          // headers: {
+          //   'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+          // }
         });
         fetchProducts();
       } catch (error) {
