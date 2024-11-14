@@ -1,5 +1,10 @@
-import { render } from 'preact'
-import MainView from './views/MainView/MainView.tsx'
-import './index.css'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
 
-render(<MainView />, document.getElementById('app')!)
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);

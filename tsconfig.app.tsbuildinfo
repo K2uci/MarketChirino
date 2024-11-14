@@ -1,1 +1,0 @@
-{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/components/dashmain/dashmain.tsx","./src/components/headermain/headermain.tsx","./src/components/openmenu/openmenu.tsx","./src/interfaces/iteminfo.ts","./src/routes/mainrouter.tsx","./src/utils/contitem/contitem.tsx","./src/views/mainview/mainview.tsx"],"errors":true,"version":"5.6.2"}
