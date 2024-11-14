@@ -7,6 +7,10 @@ const loadAll = async ( req , res ) => {
         res.status(200).json(response.rows);
         return 
     } catch (error) {
+<<<<<<< HEAD
+=======
+        // res.status(400).json(JSON.stringify(error));
+>>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
         console.log(error)
     }
 }

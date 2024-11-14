@@ -14,7 +14,11 @@ export default function AdminPanel() {
 
   const fetchProducts = async () => {
     try {
+<<<<<<< HEAD
       const response = await fetch('http://localhost:3001/generic/loadAll');
+=======
+      const response = await fetch('http://localhost:3000/api/products');
+>>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -25,7 +29,11 @@ export default function AdminPanel() {
   const handleDelete = async (id: number) => {
     if (window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
       try {
+<<<<<<< HEAD
         await fetch(`http://localhost:3001/generic/deleteOne/${id}`, {
+=======
+        await fetch(`http://localhost:3000/api/products/${id}`, {
+>>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('adminToken')}`

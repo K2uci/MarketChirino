@@ -38,7 +38,11 @@ export default function ProductCard({ product }: ProductCardProps) {
             ${product.price}
           </span>
           <button className="bg-black text-white px-4 py-2 rounded-full hover:bg-green-600 transition">
+<<<<<<< HEAD
             Compartir
+=======
+            Añadir
+>>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
           </button>
         </div>
       </div>
