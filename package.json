@@ -8,11 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-<<<<<<< HEAD
     "serve": "serve -s dist",
-=======
-    "serve": "serve -s build",
->>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
     "server": "node server/index.js"
   },
   "dependencies": {

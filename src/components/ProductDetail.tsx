@@ -78,11 +78,7 @@ export default function ProductDetail() {
           <div className="flex space-x-4 pt-6">
             <button className="flex-1 bg-green-600 text-white py-3 px-6 rounded-full hover:bg-green-700 transition flex items-center justify-center space-x-2">
               <ShoppingBag className="w-5 h-5" />
-<<<<<<< HEAD
               <span>Compartir</span>
-=======
-              <span>Añadir al Carrito</span>
->>>>>>> 3cb35d372603af36a6c750cfc15a4ba89270dd69
             </button>
             <button className="p-3 border border-gray-300 rounded-full hover:bg-gray-100 transition">
               <Share2 className="w-6 h-6 text-gray-600" />
