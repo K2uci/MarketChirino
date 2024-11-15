@@ -38,7 +38,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105">
       <img
-        src={product.image}
+        src={`data:image/jpeg;base64,${product.image} `}
         alt={product.name}
         className="w-full h-64 object-cover"
         onClick={handleClick}

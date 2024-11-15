@@ -101,7 +101,7 @@ export default function AdminPanel() {
                       <div className="h-10 w-10 flex-shrink-0">
                         <img
                           className="h-10 w-10 rounded-full object-cover"
-                          src={product.image}
+                          src={`data:image/jpeg;base64,${product.image} `}
                           alt={product.name}
                         />
                       </div>

@@ -10,7 +10,9 @@ const createAllGeneric = async ( req , res ) => {
             VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             RETURNING *;
         `;
-        const values = [name , price, description, category, gender, size, color, image, rating];
+        const imageBuffer = Buffer.from(image, 'base64');
+        console.log(imageBuffer)
+        const values = [name , price, description, category, gender, size, color, imageBuffer, rating];
         const response = await pg.query(query, values);
         res.status(200).json(response.rows)
     } catch (error) {

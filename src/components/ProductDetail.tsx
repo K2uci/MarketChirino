@@ -37,7 +37,7 @@ export default function ProductDetail() {
         {/* Imagen del producto */}
         <div className="relative group">
           <img
-            src={product.image}
+            src={`data:image/jpeg;base64,${product.image} `}
             alt={product.name}
             className="w-full h-[600px] object-cover rounded-lg"
           />

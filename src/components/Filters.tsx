@@ -21,7 +21,7 @@ export default function Filters({ filters, onFilterChange }: FiltersProps) {
               value={filters.minPrice}
               onChange={(e) => onFilterChange({ ...filters, minPrice: Number(e.target.value) })}
               placeholder="Min"
-              className="w-24 p-2 border rounded"
+              className="min-w-12 max-w-24 p-2 border rounded"
             />
             <span>-</span>
             <input
@@ -29,7 +29,7 @@ export default function Filters({ filters, onFilterChange }: FiltersProps) {
               value={filters.maxPrice}
               onChange={(e) => onFilterChange({ ...filters, maxPrice: Number(e.target.value) })}
               placeholder="Max"
-              className="w-24 p-2 border rounded"
+              className="min-w-12 max-w-24 p-2 border rounded"
             />
           </div>
         </div>
