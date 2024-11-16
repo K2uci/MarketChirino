@@ -11,7 +11,7 @@ const createAllGeneric = async ( req , res ) => {
             RETURNING *;
         `;
         const imageBuffer = Buffer.from(image, 'base64');
-        console.log(imageBuffer)
+
         const values = [name , price, description, category, gender, size, color, imageBuffer, rating];
         const response = await pg.query(query, values);
         res.status(200).json(response.rows)

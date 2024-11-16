@@ -13,7 +13,8 @@ const updateProduct = async (req, res) => {
             WHERE id = $9
             RETURNING *;
         `;
-        const values = [name, price, description, category, gender, size, color, image, id];
+        const imageBuffer = Buffer.from(image, 'base64');
+        const values = [name, price, description, category, gender, size, color, imageBuffer, id];
         const response = await pg.query(query, values);
 
         if (response.rowCount === 0) {

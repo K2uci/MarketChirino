@@ -4,7 +4,7 @@ import MobileMenu from './MobileMenu';
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [open,setOpen] = useState(true);
+  const [open,setOpen] = useState(false);
   const handleToch = () => {
     setOpen(!open);
   }

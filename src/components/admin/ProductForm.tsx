@@ -38,7 +38,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const url = product
-      ? `http://localhost:3001/generic//editOne/${product.id}`
+      ? `http://localhost:3001/generic/editOne/${product.id}`
       : 'http://localhost:3001/generic/createOne';
     
     const method = product ? 'PUT' : 'POST';
@@ -175,9 +175,9 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <input
               type="file"
               accept="image/*" 
+              defaultValue={formData.image}
               onChange={handleImageChange}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
-              required
             />
               {formData.image && (
                 <div>
