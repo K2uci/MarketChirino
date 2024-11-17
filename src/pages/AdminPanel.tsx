@@ -14,7 +14,8 @@ export default function AdminPanel() {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3001/generic/loadAll');
+      // const response = await fetch('http://localhost:3001/generic/loadAll');
+      const response = await fetch('https://marketchirinobackend.onrender.com/generic/loadAll');
       const data = await response.json();
       setProducts(data);
     } catch (error) {
@@ -25,11 +26,9 @@ export default function AdminPanel() {
   const handleDelete = async (id: number) => {
     if (window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
       try {
-        await fetch(`http://localhost:3001/generic/deleteOne/${id}`, {
+        // await fetch(`http://localhost:3001/generic/deleteOne/${id}`, {
+        await fetch(`https://marketchirinobackend.onrender.com/generic/deleteOne/${id}`, {
           method: 'DELETE',
-          // headers: {
-          //   'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
-          // }
         });
         fetchProducts();
       } catch (error) {

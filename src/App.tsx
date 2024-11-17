@@ -17,9 +17,10 @@ import { Product } from './types';
 function App() {
   const [mockProducts,setMockProducts] = useState<Product[]>([]);
   const [featuredProducts,setFeaturedProducts] = useState<Product[]>(mockProducts);
-
+  
   useEffect(()=>{
-    fetch('http://localhost:3001/generic/loadAll')
+    // fetch('http://localhost:3001/generic/loadAll')
+    fetch('https://marketchirinobackend.onrender.com/generic/loadAll')
     .then(res => res.json())
     .then(data => (setMockProducts(data),setFeaturedProducts(data)))
   },[])

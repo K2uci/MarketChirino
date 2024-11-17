@@ -34,21 +34,22 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
       });
     }
   }, [product]);
-
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // const url = product
+    //   ? `http://localhost:3001/generic/editOne/${product.id}`
+    //   : 'http://localhost:3001/generic/createOne';
     const url = product
-      ? `http://localhost:3001/generic/editOne/${product.id}`
-      : 'http://localhost:3001/generic/createOne';
-    
+    ? `https://marketchirinobackend.onrender.com/generic/editOne/${product.id}`
+    : 'https://marketchirinobackend.onrender.com/generic/createOne';
     const method = product ? 'PUT' : 'POST';
-
+    console.log('Payload Size:', JSON.stringify(formData).length);
     try {
       await fetch(url, {
         method,
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
         },
         body: JSON.stringify(formData)
       });
@@ -87,7 +88,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <label className="block text-sm font-medium text-gray-700">Nombre</label>
             <input
               type="text"
-              value={formData.name}
+              defaultValue={formData.name ? formData.name:''}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               required
@@ -98,7 +99,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <label className="block text-sm font-medium text-gray-700">Precio</label>
             <input
               type="number"
-              value={formData.price}
+              defaultValue={formData.price ? formData.price:''}
               onChange={(e) => setFormData({ ...formData, price: String(e.target.value) })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               required
@@ -108,7 +109,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
           <div>
             <label className="block text-sm font-medium text-gray-700">Descripción</label>
             <textarea
-              value={formData.description}
+              defaultValue={formData.description ? formData.description:''}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               rows={3}
@@ -120,8 +121,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <div>
               <label className="block text-sm font-medium text-gray-700">Categoría</label>
               <select
-                value={formData.category}
-                defaultValue="upper"
+                defaultValue={formData.category ? formData.category:'upper'}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value as any })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               >
@@ -135,8 +135,7 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
             <div>
               <label className="block text-sm font-medium text-gray-700">Género</label>
               <select
-                value={formData.gender}
-                defaultValue="men"
+                defaultValue={formData.gender ? formData.gender:'men'}
                 onChange={(e) => setFormData({ ...formData, gender: e.target.value as any })}
                 className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring-green-500"
               >
@@ -186,6 +185,11 @@ export default function ProductForm({ product, onClose, onSubmit }: ProductFormP
                       	className="h-48 w-48"
                         src={`data:image/jpeg;base64,${formData.image} `}
                     />
+                    {JSON.stringify(formData.image).length > 95000 ?
+                    <p className='text-red-500 text-lg'>
+                      Imagen demasiado grande
+                    </p>
+                    :null}
                 </div>
               )}
           </div>
