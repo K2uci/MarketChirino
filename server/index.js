@@ -7,6 +7,3 @@ app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
-
-// Elimine esto de las dependencias 
-// "morgan": "^1.10.0",
